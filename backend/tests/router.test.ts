@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import Fastify from 'fastify'
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
-import { InMemoryDB } from '../src/infrastructure/db'
-import { UserService } from '../src/usecases/userService'
-import { createRouter } from '../src/trpc/router'
+import { InMemoryDB } from '../src/modules/users/infrastructure/db'
+import { UserService } from '../src/modules/users/usecases/userService'
+import { createRouter } from '../src/modules/users/router'
 
 const setup = async () => {
   const app = Fastify()
