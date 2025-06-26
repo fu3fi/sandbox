@@ -1,21 +1,39 @@
 # Full Stack Application Skeleton
 
-This repository contains a minimal setup for a SolidJS frontend using Vite and DaisyUI 5 alongside a simple Express backend written in TypeScript.
+This repository demonstrates a minimal setup for a modern TypeScript stack using SolidJS on the frontend and Fastify with tRPC on the backend. The project is organised as a pnpm workspace.
 
-## Frontend
+## Technologies
 
-The `frontend` directory contains a SolidStart project. TailwindCSS and DaisyUI 5 are configured. Run `npm install` inside the folder and use `npm run dev` to start the development server.
+- **TypeScript**
+- **SolidJS** with **SolidStart** and **daisyUI**
+- **Fastify** server with **tRPC** API
+- **Drizzle ORM** with a pluggable `Database` interface
+- **Vitest** for unit tests
+- **Docker** and **docker-compose** with Prometheus and Grafana
 
-## Backend
+## Getting started
 
-The backend lives in the `backend` directory. It uses Express with TypeScript and an in-memory user store. Install dependencies with `npm install` and start the server using `npm run dev`.
+Install dependencies with pnpm and run both apps:
 
-The project is organized following Clean Architecture:
-
+```bash
+pnpm install
+pnpm --filter backend run dev    # start API
+pnpm --filter frontend run dev   # start frontend
 ```
-backend/src/
-  domain/         # Entities and domain models
-  usecases/       # Application logic
-  infrastructure/ # Data repositories
-  presentation/   # API routes
+
+To run the tests:
+
+```bash
+pnpm --filter backend test
+pnpm --filter frontend test
 ```
+
+### Docker
+
+Use Docker compose to start the API together with Prometheus and Grafana:
+
+```bash
+docker compose up --build
+```
+
+Prometheus will be available on port `9090` and Grafana on port `3001`.

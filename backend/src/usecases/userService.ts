@@ -1,14 +1,14 @@
-import { User } from '../domain/user';
-import { UserRepository } from '../infrastructure/repositories';
+import { User } from '../domain/user'
+import { Database } from '../infrastructure/db'
 
 export class UserService {
-  constructor(private repo: UserRepository) {}
+  constructor(private db: Database) {}
 
-  listUsers(): User[] {
-    return this.repo.all();
+  async listUsers(): Promise<User[]> {
+    return this.db.getUsers()
   }
 
-  createUser(name: string): User {
-    return this.repo.create(name);
+  async createUser(name: string): Promise<User> {
+    return this.db.createUser(name)
   }
 }
