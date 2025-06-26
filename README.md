@@ -21,12 +21,25 @@ pnpm --filter backend run dev    # start API
 pnpm --filter frontend run dev   # start frontend
 ```
 
+The backend will load variables from `backend/.env` when running in development.
+
 To run the tests:
 
 ```bash
 pnpm --filter backend test
 pnpm --filter frontend test
 ```
+
+### Environment variables
+
+The backend reads configuration from environment variables using [dotenv](https://github.com/motdotla/dotenv). A sample file is available at `backend/.env.example`.
+Copy it to `backend/.env` and adjust values if needed:
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+When running with Docker Compose, you can define variables using the `environment` section of `docker-compose.yml` or by providing a `.env` file that Docker Compose will read automatically.
 
 ### Docker
 
