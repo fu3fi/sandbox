@@ -1,8 +1,8 @@
 import Fastify from 'fastify'
 import { createFastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
-import { createRouter } from './trpc/router'
-import { InMemoryDB } from './infrastructure/db'
-import { UserService } from './usecases/userService'
+import { createRouter } from './modules/users/router'
+import { InMemoryDB } from './modules/users/infrastructure/db'
+import { UserService } from './modules/users/usecases/userService'
 import fastifyMetrics from 'fastify-metrics'
 // Placeholder for authjs
 // import auth from '@auth/core/fastify'

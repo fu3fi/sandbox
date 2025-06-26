@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { InMemoryDB } from '../src/infrastructure/db'
+import { InMemoryDB } from '../src/modules/users/infrastructure/db'
 
 describe('InMemoryDB', () => {
   it('creates and lists users', async () => {
